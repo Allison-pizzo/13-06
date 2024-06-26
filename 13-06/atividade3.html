@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetidor de Frase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            height: 30px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            width: 100%;
+            height: 30px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Repetidor de Frase</h2>
+        <form>
+            <label for="frase">Informe uma frase:</label>
+            <input type="text" id="frase" required>
+            <button type="submit">Repetir</button>
+            <div class="result" id="result"></div>
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const fraseInput = document.querySelector('#frase');
+        const resultDiv = document.querySelector('#result');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const frase = fraseInput.value;
+            let resultado = '';
+            for (let i = 0; i < 10; i++) {
+                resultado += frase + '<br>';
+            }
+            resultDiv.innerHTML = resultado;
+        });
+    </script>
+</body>
+</html>
